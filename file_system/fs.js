@@ -27,4 +27,4 @@ const deleteFile = async (path) => {
 
 // readFile(__dirname + '/test_file');
 // writeFile(__dirname + '/file', 'Soy un archivo nuevo');
-deleteFile(__dirname + '/file');
+// deleteFile(__dirname + '/file');
