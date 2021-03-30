@@ -3,7 +3,7 @@ const fs = require('fs').promises;
 const readFile = async (path) => {
   try {
     const data = await fs.readFile(path, { encoding: 'utf8' });
-    console.log(data.toString());
+    return data.toString();
   } catch (err) {
     console.log('No se pudo leer el archivo.\nError:', err);
   }
