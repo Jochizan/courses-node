@@ -2,4 +2,9 @@ const saludar = () => {
   console.log('Hola mundo');
 };
 
-module.exports = saludar;
+const value = 'Hola soy Joan';
+
+module.exports = {
+  saludar,
+  props: { value },
+};
