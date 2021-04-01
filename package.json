@@ -4,7 +4,10 @@
   "description": "Node.js courses",
   "main": "index.js",
   "scripts": {
-    "test": "cls"
+    "start": "gulp",
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "start-app": "electron ./electron/"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,15 @@
   },
   "homepage": "https://github.com/Jochizan/courses-node#readme",
   "dependencies": {
-    "is-odd": "^3.0.1"
+    "bcrypt": "^5.0.1",
+    "electron": "^12.0.2",
+    "is-odd": "^3.0.1",
+    "moment": "^2.29.1",
+    "puppeteer": "^8.0.0",
+    "sharp": "^0.28.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2"
   }
 }

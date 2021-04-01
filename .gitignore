@@ -1,2 +1,3 @@
 .vscode
 native/build/
+node_modules/
