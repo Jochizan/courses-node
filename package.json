@@ -1,24 +1,12 @@
 {
-  "name": "courses-node",
+  "name": "node-mongodb",
   "version": "1.0.0",
-  "description": "Node.js courses",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jochizan/courses-node.git"
-  },
-  "keywords": [
-    "javascript",
-    "node",
-    "backend"
-  ],
-  "author": "Joan Roca Hormaza <remnyachizot2015@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Jochizan/courses-node/issues"
-  },
-  "homepage": "https://github.com/Jochizan/courses-node#readme"
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "expres": "^0.0.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
+  }
 }
