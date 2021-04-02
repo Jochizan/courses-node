@@ -46,36 +46,31 @@ class Item {
     const newInput = prompt('Enter new msg:', input.value);
     if (newInput !== null) {
       input.value = newInput;
-      /*     
-			await fetch('/api/modify', {
-				method: 'POST',
-				body: JSON.stringify({ old: input.value, new: newInput }),
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			}); 
-			*/
+      await fetch('/api/modify', {
+        method: 'POST',
+        body: JSON.stringify({ old: input.value, new: newInput }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
     }
   }
 
   async remove(item, value) {
     $container.removeChild(item);
-    /*     
-		await fetch('/api/delete', {
+    await fetch('/api/delete', {
       method: 'POST',
       body: JSON.stringify({ record: value }),
       headers: {
         'Content-Type': 'application/json'
       }
-    }); 
-		*/
+    });
   }
 }
 
 async function check() {
   if ($input.value != '') {
     new Item($input.value);
-    /* 
     await fetch('/api/create', {
       method: 'POST',
       body: JSON.stringify({ record: $input.value }),
@@ -83,7 +78,6 @@ async function check() {
         'Content-Type': 'application/json'
       }
     });
-		*/
     $input.value = '';
   }
 }
