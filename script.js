@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 13371;
 const Todo = require('./models/todo');
@@ -12,11 +11,11 @@ console.log(Todo === mongoose.model('TodoModel'));
 // http://localhost:13371/ and http://localhost:27017/
 
 (async () => {
-  await mongoose.connect('mongodb://localhost/', {
+  await mongoose.connect('mongodb://localhost/db_mongo01', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    useCreateIndex: true
+    useCreateIndex: true,
   });
 })();
 
@@ -26,11 +25,15 @@ console.log(Todo === mongoose.model('TodoModel'));
 
 app.use('/', express.static(path.resolve(__dirname, 'assets')));
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.post('/api/create', async (req, res) => {
   const record = req.body;
-  console.log(record);
+  // * CREATE (_C_RUD)
+  const response = await Todo.create(record);
+
+  console.log(response, record);
+
   res.json({ status: 'ok' });
 });
 
