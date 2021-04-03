@@ -45,14 +45,14 @@ class Item {
   async edit(input) {
     const newInput = prompt('Enter new msg:', input.value);
     if (newInput !== null) {
-      input.value = newInput;
-      await fetch('/api/modify', {
+      await fetch('/api/edit', {
         method: 'POST',
         body: JSON.stringify({ old: input.value, new: newInput }),
         headers: {
           'Content-Type': 'application/json'
         }
       });
+      input.value = newInput;
     }
   }
 
@@ -84,6 +84,7 @@ async function check() {
 
 async function boot() {
   const records = await fetch('/api/get').then((t) => t.json());
+  console.log(records);
   records.forEach(({ record }) => {
     new Item(record);
   });
