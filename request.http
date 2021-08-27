@@ -1,0 +1,20 @@
+@hostname = http://localhost
+@port = 4000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+@modifiedBy = {{$processEnv USERNAME}}
+
+POST {{host}}/message/100
+Content-Type: application/json
+
+{
+  "message": "Quiero bañarme"
+}
+
+###
+GET {{host}}/message
+
+
+###
+PATCH {{host}}/message/10
