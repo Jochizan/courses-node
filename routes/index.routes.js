@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const { success, error } = require('../network/response');
 
-router.get('/', (req, res) => {
-  // console.log(req.headers);
-  res.header({
-    'custom-header': 'Valor personalizado'
-  });
+// router.get('/', (req, res) => {
+//   // console.log(req.headers);
+//   res.header({
+//     'custom-header': 'Valor personalizado'
+//   });
 
-  success(req, res, 'Lista de mensajes', 200);
-  // res.send('Hola desde el método GET');
-});
+//   success(req, res, 'Lista de mensajes', 200);
+//   // res.send('Hola desde el método GET');
+// });
 
 router.post('/:id', (req, res) => {
   // console.log(req.body);
@@ -19,6 +19,21 @@ router.post('/:id', (req, res) => {
   if (res.query.error === 'ok') return error(req, res, 'Error simulado', 400);
 
   success(req, res, 'Creado correctamente', 201);
+});
+
+router.get('/', (req, res) => {
+  console.log(req.query);
+  if (req.query.error == 'ok') {
+    error(
+      req,
+      res,
+      'Error inesperado',
+      500,
+      'Es solo una silmuación de los errores'
+    );
+  } else {
+    success(req, res, 'Creado correctamente', 201);
+  }
 });
 
 router.patch('/:id', (req, res) => {
